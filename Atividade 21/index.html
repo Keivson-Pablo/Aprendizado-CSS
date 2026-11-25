@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Kit com BEM CSS</title>
+  <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+<body>
+
+  <main class="ui-kit">
+    <section class="ui-kit__section">
+      <h2 class="ui-kit__heading">1. Botões (btn)</h2>
+      <div class="ui-kit__row">
+        <button class="btn btn--primary" type="button">Confirmar</button>
+        <button class="btn btn--secondary" type="button">Cancelar</button>
+        <button class="btn btn--danger" type="button">Excluir</button>
+        <button class="btn btn--primary btn--small" type="button">Pequeno</button>
+        <button class="btn btn--primary btn--large" type="button">Grande</button>
+      </div>
+    </section>
+
+    <section class="ui-kit__section">
+      <h2 class="ui-kit__heading">2. Card de Produto (product-card)</h2>
+      <div class="ui-kit__grid">
+        <article class="product-card">
+          <img class="product-card__image" src="https://via.placeholder.com/300x180?text=Teclado+Mecanico" alt="Teclado Mecânico">
+          <h3 class="product-card__title">Teclado Mecânico Compacto</h3>
+          <p class="product-card__price">R$ 299,90</p>
+          <button class="btn btn--primary product-card__button" type="button">Comprar</button>
+        </article>
+
+        <article class="product-card product-card--featured">
+          <img class="product-card__image" src="https://via.placeholder.com/300x180?text=Headset+Gamer" alt="Headset Gamer">
+          <h3 class="product-card__title">Headset Surround Pro</h3>
+          <p class="product-card__price">R$ 449,00</p>
+          <button class="btn btn--primary product-card__button" type="button">Comprar</button>
+        </article>
+
+        <article class="product-card product-card--sold">
+          <img class="product-card__image" src="https://via.placeholder.com/300x180?text=Mouse+Sem+Fio" alt="Mouse Sem Fio">
+          <h3 class="product-card__title">Mouse Wireless Ultraleve</h3>
+          <p class="product-card__price">R$ 189,00</p>
+          <button class="btn btn--secondary product-card__button" type="button" disabled>Esgotado</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="ui-kit__section">
+      <h2 class="ui-kit__heading">3. Navbar (navbar)</h2>
+      <nav class="navbar" aria-label="Menu principal">
+        <a class="navbar__logo" href="#">UI Kit</a>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a class="navbar__link navbar__link--active" href="#botoes">Botões</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#cards">Cards</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#formulario">Contato</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <section class="ui-kit__section">
+      <h2 class="ui-kit__heading">4. Formulário de Contato (contact-form)</h2>
+      <form class="contact-form" action="#" method="post">
+        <div class="contact-form__field">
+          <label class="contact-form__label" for="nome">Nome</label>
+          <input class="contact-form__input" id="nome" name="nome" type="text" placeholder="Seu nome completo">
+        </div>
+
+        <div class="contact-form__field">
+          <label class="contact-form__label" for="email">E-mail</label>
+          <input class="contact-form__input contact-form__input--error" id="email" name="email" type="email" value="usuario@exemplo">
+          <span class="contact-form__error-text">Informe um endereço de e-mail válido.</span>
+        </div>
+
+        <button class="btn btn--primary contact-form__button" type="submit">Enviar mensagem</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #1e293b;
+}
+
+/* ---------- 2, 3, 4, 5: container grid ---------- */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);                 /* 4 colunas iguais */
+  grid-template-rows: auto auto 1fr auto auto;           /* header | métricas | gráfico+alertas | atividades | footer */
+  gap: 20px;                                             /* espaço entre os cartões */
+  padding: 20px;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+/* ---------- 6: cartões maiores (span) ---------- */
+.header,
+.footer,
+.atividades {
+  grid-column: span 4;
+}
+
+.grafico,
+.alertas {
+  grid-column: span 2;
+}
+
+/* ---------- 7: estilo dos cartões ---------- */
+.card {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+/* ---------- Header (Flexbox para o componente interno) ---------- */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+  background: #1e3a63;
+  color: white;
+}
+
+.header h1 {
+  font-size: 1.4rem;
+}
+
+/* ---------- Métricas ---------- */
+.metrica {
+  color: white;
+}
+
+.metrica h2 {
+  font-weight: normal;
+  font-size: 0.95rem;
+}
+
+.metrica .valor {
+  margin-bottom: 4px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.metrica .variacao {
+  font-size: 0.95rem;
+}
+
+.receita  { background: #2f9e63; }
+.usuarios { background: #2f80d0; }
+.pedidos  { background: #d9730d; }
+.conversao { background: #d9475a; }
+
+/* ---------- Gráfico (barras com Flexbox) ---------- */
+.grafico {
+  display: flex;
+  flex-direction: column;
+  background: #2f80d0;
+  color: white;
+}
+
+.barras {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  min-height: 160px;
+  list-style: none;
+}
+
+.barras li {
+  flex: 1;
+  height: var(--altura);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 6px 6px 0 0;
+}
+
+.barras span {
+  padding-bottom: 4px;
+  color: #1e3a63;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* ---------- Alertas ---------- */
+.alertas {
+  background: #2fa8a0;
+  color: white;
+}
+
+.alertas ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.alertas li {
+  padding: 10px 12px;
+  background: #d5f5f1;
+  color: #145752;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+/* ---------- Atividades recentes ---------- */
+.atividades ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.atividades li {
+  padding: 10px 12px;
+  background: #f1f5f9;
+  border-left: 4px solid #2f80d0;
+  border-radius: 4px;
+}
+
+.atividades strong {
+  margin-right: 8px;
+  color: #2f80d0;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  background: #1e3a63;
+  color: #dbe7f5;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+/* Tablet: 2 colunas */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;   /* linhas passam a ser automáticas */
+    min-height: 0;
+  }
+
+  .header,
+  .grafico,
+  .alertas,
+  .atividades,
+  .footer {
+    grid-column: 1 / -1;        /* ocupam a linha toda */
+  }
+}
+
+/* Mobile: 1 coluna */
+@media (max-width: 560px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .metrica .valor {
+    font-size: 1.7rem;
+  }
+}

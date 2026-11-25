@@ -1,0 +1,50 @@
+/* BLOCK */
+.contact-form {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* ELEMENTS */
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.contact-form__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--cor-text);
+}
+
+.contact-form__input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--cor-text);
+  background-color: var(--cor-surface);
+  border: 1px solid var(--cor-border);
+  border-radius: var(--border-radius);
+}
+
+.contact-form__input:focus {
+  outline: none;
+  border-color: var(--cor-primary);
+}
+
+.contact-form__error-text {
+  font-size: var(--font-size-sm);
+  color: var(--cor-danger);
+}
+
+.contact-form__button {
+  align-self: flex-start;
+}
+
+/* MODIFIER */
+.contact-form__input--error {
+  border-color: var(--cor-danger);
+}

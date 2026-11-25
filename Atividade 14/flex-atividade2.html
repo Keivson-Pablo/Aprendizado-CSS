@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 2 - Layout com Barra Lateral</title>
+  <link rel="stylesheet" href="flex.css">
+</head>
+<body>
+
+  <!-- Wrapper externo: flex-direction: column (navbar em cima, corpo embaixo) -->
+  <div class="pagina">
+
+    <!-- Navbar reaproveitada da Atividade 1 -->
+    <nav class="navbar" aria-label="Menu principal">
+      <a class="logo" href="#">LOGO</a>
+      <ul class="nav-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <button class="btn-cadastro" type="button">Cadastre-se</button>
+    </nav>
+
+    <!-- Corpo: flex-direction: row (sidebar + conteúdo lado a lado) -->
+    <div class="corpo">
+
+      <!-- Sidebar: largura fixa 250px, links em column -->
+      <aside class="sidebar">
+        <h3>Menu</h3>
+        <a href="#">📊 Dashboard</a>
+        <a href="#">👤 Perfil</a>
+        <a href="#">⚙️ Config</a>
+        <a href="#">📧 Msgs</a>
+      </aside>
+
+      <!-- Conteúdo: flex: 1 (ocupa todo o espaço restante) -->
+      <main class="content">
+        <h1>Conteúdo Principal</h1>
+        <p>flex: 1 (ocupa todo o espaço restante)</p>
+        <p>Aqui vai o conteúdo principal da página.</p>
+
+        <section class="cards" aria-label="Resumo">
+          <article class="card"><h3>Visitas</h3><p>1.250</p></article>
+          <article class="card"><h3>Mensagens</h3><p>32</p></article>
+          <article class="card"><h3>Tarefas</h3><p>8</p></article>
+        </section>
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>

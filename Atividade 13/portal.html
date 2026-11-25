@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal FrontTech</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+  <!-- position: sticky (z-index 10) -->
+  <header class="menu-navegacao" id="topo">
+    <a class="logo" href="#topo">Front<span>Tech</span></a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- position: static (fluxo normal) -->
+  <main>
+
+    <section class="hero">
+      <h1>Aprenda Front-End do jeito profissional</h1>
+      <p>
+        O Portal FrontTech reúne cursos práticos de HTML, CSS e JavaScript
+        para você sair do zero e construir interfaces modernas, acessíveis e responsivas.
+      </p>
+      <a class="btn" href="#modal">Quero uma oferta especial</a>
+    </section>
+
+    <section id="cursos">
+      <h2>Nossos Cursos</h2>
+      <p>Role a página e observe o menu grudado no topo e o botão fixo no canto inferior direito.</p>
+
+      <!-- position: relative (âncora da badge) -->
+      <article class="card-curso">
+        <!-- position: absolute (canto superior direito) -->
+        <span class="badge-promocao">🔥 50% OFF</span>
+        <h3>HTML5 Semântico</h3>
+        <p>Domine as tags semânticas e construa páginas bem estruturadas, sem depender de divs.</p>
+        <p class="preco"><s>R$ 199,00</s> <strong>R$ 99,50</strong></p>
+      </article>
+
+      <article class="card-curso">
+        <span class="badge-promocao">🔥 50% OFF</span>
+        <h3>CSS Posicionamento</h3>
+        <p>Static, relative, absolute, fixed, sticky e z-index na prática, com projetos reais.</p>
+        <p class="preco"><s>R$ 249,00</s> <strong>R$ 124,50</strong></p>
+      </article>
+
+      <article class="card-curso">
+        <h3>Pseudo-classes e Pseudo-elementos</h3>
+        <p>Crie interações visuais com :hover, :focus, ::before e ::after.</p>
+        <p class="preco"><strong>R$ 149,00</strong></p>
+      </article>
+
+      <article class="card-curso">
+        <span class="badge-promocao">🔥 50% OFF</span>
+        <h3>Layout Responsivo</h3>
+        <p>Media queries, Flexbox e Grid para interfaces que funcionam em qualquer tela.</p>
+        <p class="preco"><s>R$ 229,00</s> <strong>R$ 114,50</strong></p>
+      </article>
+
+      <article class="card-curso">
+        <h3>JavaScript para Interfaces</h3>
+        <p>Manipule o DOM, trate eventos e dê vida às suas páginas.</p>
+        <p class="preco"><strong>R$ 299,00</strong></p>
+      </article>
+
+      <article class="card-curso">
+        <h3>Acessibilidade Web</h3>
+        <p>Navegação por teclado, leitores de tela e boas práticas de contraste.</p>
+        <p class="preco"><strong>R$ 179,00</strong></p>
+      </article>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre o Portal</h2>
+      <p>
+        A FrontTech nasceu para aproximar estudantes do mercado de desenvolvimento web.
+        Cada curso tem teoria objetiva, exemplos comentados e atividades práticas
+        para fixar o conteúdo.
+      </p>
+      <p>
+        Nossa metodologia é baseada em projetos: você aprende o conceito,
+        aplica no código e recebe orientações para evoluir a cada entrega.
+      </p>
+      <p>
+        Todo o material é pensado para ser acessível, com atenção ao teclado,
+        aos leitores de tela e à legibilidade em qualquer dispositivo.
+      </p>
+    </section>
+
+    <section id="depoimentos">
+      <h2>Depoimentos</h2>
+      <p>"Entendi de vez a diferença entre absolute e fixed. Os exemplos visuais ajudaram muito!" — Camila, estudante</p>
+      <p>"O curso de posicionamento mudou minha forma de montar layouts." — Rafael, desenvolvedor júnior</p>
+      <p>"Material claro, direto e com muita prática." — Juliana, designer</p>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Dúvidas? Fale com a nossa equipe pelo e-mail contato@fronttech.example.</p>
+      <p>Atendimento de segunda a sexta, das 9h às 18h.</p>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; 2026 Portal FrontTech. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- position: fixed (1) - botão voltar ao topo (z-index 20) -->
+  <a class="btn-topo" href="#topo" aria-label="Voltar ao topo da página" title="Voltar ao topo">&#8593;</a>
+
+  <!-- position: fixed (2) - overlay (z-index 999) + modal (z-index 1000)
+       Aberto via :target (link para #modal), sem JavaScript -->
+  <aside class="overlay" id="modal">
+    <a class="overlay-fechar" href="#fechar" aria-label="Fechar oferta"></a>
+  </aside>
+  <article class="modal" role="dialog" aria-labelledby="modal-titulo">
+    <h2 id="modal-titulo">🔥 Oferta Especial</h2>
+    <p>Matricule-se hoje em qualquer curso em promoção e ganhe <strong>50% de desconto</strong>.</p>
+    <p>Você também recebe acesso vitalício ao material de apoio.</p>
+    <a class="btn" href="#fechar">Fechar</a>
+  </article>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+:root {
+  /* Cores */
+  --cor-primary: #1a73e8;
+  --cor-primary-hover: #1557b0;
+  --cor-secondary: #6c757d;
+  --cor-secondary-hover: #565e64;
+  --cor-danger: #ea4335;
+  --cor-danger-hover: #c5221f;
+  --cor-featured: #f5b400;
+  --cor-text: #202a36;
+  --cor-text-muted: #5f6b7a;
+  --cor-border: #d0d7de;
+  --cor-bg: #f4f7fa;
+  --cor-surface: #ffffff;
+
+  /* Tipografia */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 16px;
+  --font-size-lg: 1.25rem;
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+
+  /* Bordas */
+  --border-radius: 8px;
+}

@@ -1,0 +1,230 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+}
+
+.topo {
+  background: #2968d3;
+  padding: 24px 16px;
+}
+
+.titulo {
+  margin: 0;
+  max-width: 960px;
+  margin-inline: auto;
+  color: white;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+.conteudo {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.pratica {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pratica h2 {
+  margin-top: 0;
+  color: #2968d3;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+
+/* ===== PRÁTICA 1: MENU DE NAVEGAÇÃO ===== */
+
+/* Código base */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* 2. Sublinhado animado com ::after (nasce com width: 0) */
+.menu a {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0;
+  transition: color 0.3s;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #2968d3;
+  transition: width 0.3s;
+}
+
+/* 1. :hover muda a cor para azul (e :focus para acessibilidade) */
+.menu a:hover,
+.menu a:focus {
+  color: blue;
+}
+
+/* Quando passa o mouse, o ::after cresce */
+.menu a:hover::after,
+.menu a:focus::after {
+  width: 100%;
+}
+
+/* 3. Último item (Contato) parece um botão */
+.menu li:last-child a {
+  padding: 8px 18px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+
+.menu li:last-child a:hover,
+.menu li:last-child a:focus {
+  color: white;
+  background-color: #0b7a0b;
+}
+
+/* O botão não precisa do sublinhado */
+.menu li:last-child a::after {
+  display: none;
+}
+
+/* Responsivo: menu empilhado em telas pequenas */
+@media (max-width: 480px) {
+  .menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .menu li:last-child a {
+    display: block;
+  }
+}
+
+
+/* ===== PRÁTICA 2: TABELA ZEBRA ===== */
+
+/* Permite rolagem horizontal em telas muito estreitas */
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+.tabela-alunos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-alunos th,
+.tabela-alunos td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-alunos th {
+  background: #2968d3;
+  color: white;
+}
+
+/* 1. Linhas pares com fundo cinza claro */
+.tabela-alunos tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* 2. Hover: fundo amarelo claro (vem depois do even para prevalecer) */
+.tabela-alunos tr:hover {
+  background-color: #fff9c4;
+}
+
+/* O cabeçalho não deve mudar no hover */
+.tabela-alunos tr:first-child:hover {
+  background-color: transparent;
+}
+
+/* 3. Última linha em verde e negrito */
+.tabela-alunos tr:last-child {
+  color: green;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .tabela-alunos th,
+  .tabela-alunos td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ===== PRÁTICA 3: CARDS COM ::before ===== */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  position: relative; /* referência para o ::before absoluto */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  color: #2968d3;
+}
+
+/* 1. Hover levanta o card */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 2 e 3. Etiqueta "NOVO" injetada com ::before */
+.card.novo::before {
+  content: "NOVO";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 0 8px 0 8px;
+}

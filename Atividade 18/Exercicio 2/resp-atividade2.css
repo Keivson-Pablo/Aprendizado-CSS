@@ -1,0 +1,207 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --gap: 1.5rem;
+  --azul: #2563eb;
+  --azul-escuro: #1e3a8a;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+/* =========================================================
+   BASE (MOBILE)
+   ========================================================= */
+
+.topo {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: var(--azul-escuro);
+  color: white;
+}
+
+.topo h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+}
+
+.topo h1 span {
+  color: #93c5fd;
+}
+
+.topo p {
+  margin: 0;
+  color: #dbeafe;
+}
+
+/* ---------- Lista de planos: 1 coluna ---------- */
+.planos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  padding: 1.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plano {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.plano h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.descricao {
+  margin: 0.25rem 0 1rem;
+  color: #64748b;
+}
+
+.preco {
+  margin: 0 0 1rem;
+}
+
+.valor {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--azul-escuro);
+}
+
+.periodo {
+  color: #64748b;
+}
+
+.recursos {
+  flex: 1;                    /* empurra o botão para o final do card */
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.recursos li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.recursos li::before {
+  content: "✓ ";
+  color: #059669;
+  font-weight: bold;
+}
+
+/* Botões grandes e fáceis de tocar (mínimo 44px de altura) */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  background: var(--azul-escuro);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--azul);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Selo "Mais Popular" (visível em todas as telas) */
+.selo {
+  align-self: flex-start;
+  margin: 0 0 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: #f59e0b;
+  color: #1e293b;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 999px;
+}
+
+.rodape {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* =========================================================
+   TABLET (>= 768px): 2 colunas
+   O 3º card ocupa a linha de baixo, centralizado
+   ========================================================= */
+@media (min-width: 768px) {
+  .planos {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+
+  .plano:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - (var(--gap) / 2));
+  }
+}
+
+/* =========================================================
+   DESKTOP (>= 1024px): 3 colunas + destaque no plano Pro
+   ========================================================= */
+@media (min-width: 1024px) {
+  .planos {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    padding: 3rem 2rem;
+  }
+
+  /* desfaz a regra do tablet para o 3º card */
+  .plano:nth-child(3) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+
+  /* Plano Pro: borda diferenciada + leve elevação */
+  .plano-pro {
+    border-color: var(--azul);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.25);
+    transform: translateY(-14px);
+  }
+
+  .btn-destaque {
+    background: var(--azul);
+  }
+
+  .btn-destaque:hover,
+  .btn-destaque:focus {
+    background: var(--azul-escuro);
+  }
+}

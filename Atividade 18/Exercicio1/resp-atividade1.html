@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Requisito 6: meta viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Web - Layout Responsivo</title>
+  <link rel="stylesheet" href="resp-atividade1.css">
+</head>
+<body>
+
+  <!-- Navbar: hambúrguer no mobile, menu horizontal a partir de 768px -->
+  <header class="navbar">
+    <a class="logo" href="#">Studio<span>Web</span></a>
+
+    <button class="menu-toggle" type="button"
+            aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span class="barra"></span>
+      <span class="barra"></span>
+      <span class="barra"></span>
+    </button>
+
+    <nav class="menu" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>Sites rápidos, bonitos e responsivos</h1>
+      <p>Criamos experiências web que funcionam em celulares, tablets e desktops.</p>
+      <a class="btn" href="#servicos">Conheça os serviços</a>
+    </section>
+
+    <!-- Requisito 4: grid de cards 1 → 2 → 3 colunas -->
+    <section class="cards" id="servicos" aria-label="Serviços">
+      <article class="card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='600' height='360' fill='%232563eb'/%3E%3C/svg%3E"
+             width="600" height="360" alt="Ilustração azul do serviço de design de interfaces">
+        <h3>Design de Interfaces</h3>
+        <p>Layouts modernos pensados primeiro para o celular.</p>
+      </article>
+
+      <article class="card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='600' height='360' fill='%23059669'/%3E%3C/svg%3E"
+             width="600" height="360" alt="Ilustração verde do serviço de desenvolvimento front-end">
+        <h3>Desenvolvimento Front-End</h3>
+        <p>HTML, CSS e JavaScript limpos, acessíveis e rápidos.</p>
+      </article>
+
+      <article class="card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='600' height='360' fill='%237c3aed'/%3E%3C/svg%3E"
+             width="600" height="360" alt="Ilustração roxa do serviço de lojas virtuais">
+        <h3>Lojas Virtuais</h3>
+        <p>E-commerce que converte bem em qualquer tamanho de tela.</p>
+      </article>
+
+      <article class="card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='600' height='360' fill='%23d97706'/%3E%3C/svg%3E"
+             width="600" height="360" alt="Ilustração laranja do serviço de SEO">
+        <h3>SEO e Performance</h3>
+        <p>Páginas leves e otimizadas para os mecanismos de busca.</p>
+      </article>
+
+      <article class="card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='600' height='360' fill='%23db2777'/%3E%3C/svg%3E"
+             width="600" height="360" alt="Ilustração rosa do serviço de identidade visual">
+        <h3>Identidade Visual</h3>
+        <p>Logotipos e guias de estilo para sua marca.</p>
+      </article>
+
+      <article class="card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='600' height='360' fill='%230891b2'/%3E%3C/svg%3E"
+             width="600" height="360" alt="Ilustração turquesa do serviço de manutenção">
+        <h3>Manutenção e Suporte</h3>
+        <p>Acompanhamento contínuo para o seu site nunca parar.</p>
+      </article>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <h2>Sobre nós</h2>
+      <p>
+        Somos um estúdio focado em Mobile-First: começamos pela menor tela
+        e expandimos o layout conforme o espaço disponível.
+      </p>
+    </section>
+  </main>
+
+  <footer class="rodape" id="contato">
+    <p>contato@studioweb.example</p>
+    <p>&copy; 2026 Studio Web</p>
+  </footer>
+
+  <script>
+    // Abre/fecha o menu hambúrguer no mobile
+    var botao = document.querySelector('.menu-toggle');
+    var menu = document.getElementById('menu');
+
+    botao.addEventListener('click', function () {
+      var aberto = menu.classList.toggle('aberto');
+      botao.setAttribute('aria-expanded', aberto);
+      botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    // Fecha o menu ao clicar em um link
+    menu.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        menu.classList.remove('aberto');
+        botao.setAttribute('aria-expanded', 'false');
+        botao.setAttribute('aria-label', 'Abrir menu');
+      }
+    });
+  </script>
+
+</body>
+</html>

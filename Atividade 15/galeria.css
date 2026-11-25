@@ -1,0 +1,153 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1e293b;
+  background: #f8fafc;
+}
+
+.cabecalho {
+  padding: 24px 20px 4px;
+  text-align: center;
+}
+
+.cabecalho h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+}
+
+.cabecalho p {
+  margin: 0;
+  color: #64748b;
+}
+
+/* ---------- Passo 1: container flex ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;      /* permite múltiplas linhas */
+  gap: 16px;            /* espaçamento uniforme */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- Passo 2: itens base (tamanhos variados com flex-basis) ---------- */
+.item {
+  flex: 1 1 250px;      /* grow:1 shrink:1 basis:250px */
+  min-height: 200px;
+  background: #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  text-align: center;
+}
+
+.item .num {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.item small {
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+/* Variação de tamanhos (flex-basis diferentes) */
+.item:nth-child(4) { flex-basis: 200px; }
+.item:nth-child(6) { flex-basis: 250px; }
+.item:nth-child(7) { flex-basis: 180px; }
+
+/* ---------- Passo 3: itens destaque (flex-grow maior) ---------- */
+.item.destaque {
+  flex: 2 1 400px;      /* cresce 2x, base maior */
+  min-height: 280px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.item.destaque small {
+  color: #e0e7ff;
+}
+
+/* ---------- Passo 4: item especial (align-self + order) ---------- */
+.item.especial {
+  flex: 1 1 100%;       /* ocupa a linha inteira */
+  align-self: center;   /* centraliza na linha */
+  order: -1;            /* aparece PRIMEIRO */
+  background: #fbbf24;
+  min-height: 120px;
+}
+
+.item.especial small {
+  color: #78350f;
+}
+
+/* Reordenar outro item: o 3 vai para o final */
+.item:nth-child(3) {
+  order: 10;
+  background: #fca5a5;
+}
+
+/* align-self diferente dos demais: o item 6 cola embaixo da linha */
+.item:nth-child(6) {
+  align-self: flex-end;
+  background: #86efac;
+}
+
+/* ---------- Passo 5: responsividade ---------- */
+
+/* Tablet: 2 colunas */
+@media (max-width: 768px) {
+  .item,
+  .item.destaque {
+    flex: 1 1 calc(50% - 16px);
+  }
+
+  /* o especial continua ocupando a linha toda */
+  .item.especial {
+    flex: 1 1 100%;
+  }
+
+  /* neutraliza as bases variadas definidas para desktop */
+  .item:nth-child(4),
+  .item:nth-child(6),
+  .item:nth-child(7) {
+    flex-basis: calc(50% - 16px);
+  }
+
+  .item.destaque {
+    min-height: 220px;
+  }
+}
+
+/* Mobile: 1 coluna */
+@media (max-width: 480px) {
+  .gallery {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .item,
+  .item.destaque,
+  .item.especial,
+  .item:nth-child(4),
+  .item:nth-child(6),
+  .item:nth-child(7) {
+    flex: 0 0 auto;     /* sem basis em altura: usa o min-height */
+    width: 100%;
+  }
+
+  /* em coluna, align-self passa a agir na horizontal: mantém largura total */
+  .item:nth-child(6),
+  .item.especial {
+    align-self: stretch;
+  }
+}

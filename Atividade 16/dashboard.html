@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - CSS Grid</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- 1. Container do dashboard (display: grid) -->
+  <div class="dashboard">
+
+    <!-- HEADER (span 4) -->
+    <header class="card header">
+      <h1>📊 Dashboard Admin</h1>
+      <p>Bem-vindo, Admin | ⚙️ 📧 👤</p>
+    </header>
+
+    <!-- 4 CARTÕES DE MÉTRICAS -->
+    <article class="card metrica receita">
+      <h2>💰 Receita Total</h2>
+      <p class="valor">R$ 45.230</p>
+      <p class="variacao">+12.5%</p>
+    </article>
+
+    <article class="card metrica usuarios">
+      <h2>👥 Usuários Ativos</h2>
+      <p class="valor">2.847</p>
+      <p class="variacao">+8.2%</p>
+    </article>
+
+    <article class="card metrica pedidos">
+      <h2>📦 Pedidos Hoje</h2>
+      <p class="valor">184</p>
+      <p class="variacao">+3.1%</p>
+    </article>
+
+    <article class="card metrica conversao">
+      <h2>📈 Taxa de Conversão</h2>
+      <p class="valor">3.24%</p>
+      <p class="variacao">-0.4%</p>
+    </article>
+
+    <!-- GRÁFICO (span 2) -->
+    <section class="card grafico">
+      <h2>📊 Gráfico de Vendas Mensais</h2>
+      <ul class="barras" role="img" aria-label="Gráfico de barras com vendas de janeiro a junho">
+        <li style="--altura: 45%"><span>Jan</span></li>
+        <li style="--altura: 60%"><span>Fev</span></li>
+        <li style="--altura: 40%"><span>Mar</span></li>
+        <li style="--altura: 75%"><span>Abr</span></li>
+        <li style="--altura: 90%"><span>Mai</span></li>
+        <li style="--altura: 70%"><span>Jun</span></li>
+      </ul>
+    </section>
+
+    <!-- ALERTAS (span 2) -->
+    <aside class="card alertas">
+      <h2>🔔 Alertas Recentes</h2>
+      <ul>
+        <li>⚠️ Estoque baixo: Produto X</li>
+        <li>✅ Backup concluído</li>
+        <li>📧 3 novas mensagens</li>
+      </ul>
+    </aside>
+
+    <!-- ATIVIDADES RECENTES (span 4) -->
+    <section class="card atividades">
+      <h2>🕒 Atividades Recentes</h2>
+      <ul>
+        <li><strong>14:32</strong> Novo pedido #1042 realizado por Maria Souza</li>
+        <li><strong>13:10</strong> Usuário João Lima atualizou o perfil</li>
+        <li><strong>11:45</strong> Pagamento de R$ 1.250,00 aprovado</li>
+        <li><strong>09:20</strong> Relatório mensal gerado com sucesso</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER (span 4) -->
+    <footer class="card footer">
+      <p>&copy; 2026 Dashboard Admin. Todos os direitos reservados.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* BLOCK */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--cor-surface);
+  border: 1px solid var(--cor-border);
+  border-radius: var(--border-radius);
+}
+
+/* ELEMENTS */
+.product-card__image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.product-card__title {
+  font-size: var(--font-size-lg);
+  color: var(--cor-text);
+}
+
+.product-card__price {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--cor-primary);
+}
+
+.product-card__button {
+  width: 100%;
+}
+
+/* MODIFIERS */
+.product-card--featured {
+  border: 2px solid var(--cor-featured);
+}
+
+.product-card--sold {
+  opacity: 0.65;
+}

@@ -1,0 +1,295 @@
+
+
+/* ---------- Reset / boas práticas ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+/* Requisito 5: imagens flexíveis */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   BASE (MOBILE)
+   ========================================================= */
+
+/* ---------- Navbar (hambúrguer) ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #1e3a8a;
+  color: white;
+}
+
+.logo {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #93c5fd;
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle .barra {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Menu escondido no mobile; abre com a classe .aberto */
+.menu {
+  display: none;
+  flex-basis: 100%;
+}
+
+.menu.aberto {
+  display: block;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0.5rem 0 0;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 0.75rem 0;       /* alvo de toque confortável */
+  color: white;
+  text-decoration: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu a:hover,
+.menu a:focus {
+  color: #93c5fd;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.6rem, 6vw, 2.6rem);
+  line-height: 1.2;
+}
+
+.hero p {
+  margin: 0 0 1.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  background: #1e3a8a;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #1d4ed8;
+}
+
+/* ---------- Grid de cards: 1 coluna ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+}
+
+.card h3 {
+  margin: 1rem 1rem 0.25rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0 1rem 1rem;
+  color: #475569;
+}
+
+/* ---------- Sobre ---------- */
+.sobre {
+  padding: 1.5rem 1rem 2rem;
+}
+
+.sobre h2 {
+  margin-top: 0;
+}
+
+/* ---------- Footer ---------- */
+.rodape {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: #1e3a8a;
+  color: #dbeafe;
+}
+
+.rodape p {
+  margin: 0.25rem 0;
+}
+
+/* =========================================================
+   BREAKPOINT 480px (mobile grande)
+   ========================================================= */
+@media (min-width: 480px) {
+  .navbar {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .cards {
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .sobre {
+    padding: 2rem 1.5rem;
+  }
+
+  .rodape {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+}
+
+/* =========================================================
+   BREAKPOINT 768px (tablet): menu horizontal + 2 colunas
+   ========================================================= */
+@media (min-width: 768px) {
+  .navbar {
+    flex-wrap: nowrap;
+    padding: 0.75rem 2rem;
+  }
+
+  /* some o hambúrguer e mostra o menu em linha */
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu,
+  .menu.aberto {
+    display: block;
+    flex-basis: auto;
+  }
+
+  .menu ul {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .menu a {
+    padding: 0.5rem 0;
+    border-top: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .menu a:hover,
+  .menu a:focus {
+    border-bottom-color: #93c5fd;
+  }
+
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .sobre {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+
+/* =========================================================
+   BREAKPOINT 1024px (desktop): 3 colunas
+   ========================================================= */
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .hero {
+    padding: 5rem 2rem;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+  }
+}
